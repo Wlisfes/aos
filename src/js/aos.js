@@ -230,6 +230,7 @@ const init = function init(settings) {
  * Export Public API
  */
 
+export { throttle, debounce, disable, isDisabled, init, refresh, refreshHard, handleScroll }
 export default {
   throttle,
   debounce,

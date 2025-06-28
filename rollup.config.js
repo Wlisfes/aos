@@ -21,7 +21,8 @@ export default [
       file: pkg.browser,
       name: 'AOS',
       format: 'umd',
-      sourcemap: process.env.NODE_ENV === 'dev'
+      sourcemap: process.env.NODE_ENV === 'dev',
+      exports: 'named'
     },
     plugins: [
       transformStyles,
@@ -37,8 +38,8 @@ export default [
     input,
     external: Object.keys(pkg.dependencies),
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' }
+      { file: pkg.main, format: 'cjs', exports: 'named' },
+      { file: pkg.module, format: 'es', exports: 'named' }
     ],
     plugins: [
       transformStyles,

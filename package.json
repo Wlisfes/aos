@@ -8,6 +8,7 @@
   "main": "dist/aos.cjs.js",
   "module": "dist/aos.esm.js",
   "browser": "dist/aos.js",
+  "types": "types/aos.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/michalsnik/aos.git"
@@ -55,6 +56,7 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "types"
   ]
 }
