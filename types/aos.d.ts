@@ -10,7 +10,7 @@ export function refresh(initialize?: boolean): void;
 export function refreshHard(): void;
 export function disable(): void;
 export function isDisabled(optionDisable: AOS.AosOptions['disable']): boolean;
-export function handleScroll(elements: AOS.AosElement[]): void;
+export function handleScroll(elements: AOS.AosElement[], top?: number): void;
 export function throttle<T extends (...args: any[]) => any>(
   func: T,
   wait: number,
@@ -197,7 +197,7 @@ declare namespace AOS {
    * Handle scroll event to animate elements on scroll
    * @param elements Array of elements to handle
    */
-  function handleScroll(elements: AosElement[]): void;
+  function handleScroll(elements: AosElement[], top?: number): void;
 
   /**
    * Throttle function to limit the number of function calls
