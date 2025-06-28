@@ -34,6 +34,8 @@ let options = {
   disable: false,
   once: false,
   mirror: false,
+  resize: true,
+  scroll: true,
   anchorPlacement: 'top-bottom',
   startEvent: 'DOMContentLoaded',
   animatedClassName: 'aos-animate',
@@ -57,15 +59,18 @@ const initializeScroll = function initializeScroll() {
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener(
-    'scroll',
-    throttle(() => {
-      handleScroll($aosElements, options.once);
-    }, options.throttleDelay)
-  );
+  if (options.scroll) {
+    window.addEventListener(
+      'scroll',
+      throttle(() => {
+        handleScroll($aosElements, options.once);
+      }, options.throttleDelay)
+    );
+  }
 
   return $aosElements;
 };
+
 
 /**
  * Refresh AOS
@@ -207,15 +212,16 @@ const init = function init(settings) {
   /**
    * Refresh plugin on window resize or orientation change
    */
-  window.addEventListener(
-    'resize',
-    debounce(refresh, options.debounceDelay, true)
-  );
-
-  window.addEventListener(
-    'orientationchange',
-    debounce(refresh, options.debounceDelay, true)
-  );
+  if (options.resize)  {
+    window.addEventListener(
+      'resize',
+      debounce(refresh, options.debounceDelay, true)
+    );
+    window.addEventListener(
+      'orientationchange',
+      debounce(refresh, options.debounceDelay, true)
+    );
+  }
 
   return $aosElements;
 };
@@ -225,7 +231,12 @@ const init = function init(settings) {
  */
 
 export default {
+  throttle,
+  debounce,
+  disable,
+  isDisabled,
   init,
   refresh,
-  refreshHard
+  refreshHard,
+  handleScroll
 };
