@@ -63,7 +63,7 @@ const initializeScroll = function initializeScroll() {
     window.addEventListener(
       'scroll',
       throttle(() => {
-        handleScroll($aosElements, options.once);
+        handleScroll($aosElements);
       }, options.throttleDelay)
     );
   }

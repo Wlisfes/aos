@@ -80,7 +80,8 @@ const applyClasses = (el, top) => {
  * @param  {array} $elements         array of elements nodes
  * @return {void}
  */
-const handleScroll = $elements =>
-  $elements.forEach((el, i) => applyClasses(el, window.pageYOffset));
+const handleScroll = ($elements, top = window.pageYOffset) => {
+  $elements.forEach((el, i) => applyClasses(el, top));
+}
 
 export default handleScroll;
